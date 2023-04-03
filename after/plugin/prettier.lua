@@ -1,10 +1,11 @@
 local null_ls = require('null-ls')
 
-local formatting = null_ls.builtins.formatting.prettierd
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-local sources = { formatting }
+local sources = { null_ls.builtins.formatting.prettierd
+    , null_ls.builtins.formatting.rustfmt
+}
 
 require("null-ls").setup({
     sources = sources,
